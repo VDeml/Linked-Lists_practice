@@ -51,6 +51,7 @@ class LinkedList {
             return temp;
         }
     }
+    // returns node at the index
     at(index) {
         if(index < 0 || !Number.isInteger(index)) {
             return;
@@ -63,7 +64,16 @@ class LinkedList {
             }
         }
         return temp;
+    };
+    pop() {
+        if(this.listHead === null) {
+            return;
+        }
+        let temp = this.listHead
+        this.listHead = this.listHead.nextNode
+        return temp.value
     }
+
 }
 
 class Node {
@@ -95,4 +105,4 @@ list.append(secondNode)
 list.prepend(prepended)
 list.append(fourth)
 
-console.log(list.at(0).value)
+console.log(list.pop())
