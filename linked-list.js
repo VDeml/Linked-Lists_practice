@@ -19,6 +19,16 @@ class LinkedList {
         this.head = value;
         this.head.nextNode = temp
     }
+    // returns the total number of nodes in list
+    size() {
+        let count = 0;
+        let temp = this.head
+        while(temp !== null) {
+            temp = temp.nextNode
+            count ++
+        }
+        return count
+    }
 }
 
 class Node {
@@ -46,9 +56,7 @@ const fourth = new Node("fourt?")
 list.append(firstNode)
 list.append(secondNode)
 
-console.log(`After 2 appends:
-    ${list}`)
 
 list.prepend(prepended)
 list.append(fourth)
-console.log(list)
+console.log(list.size())
