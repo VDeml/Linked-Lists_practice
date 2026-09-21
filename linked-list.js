@@ -82,6 +82,18 @@ class LinkedList {
             temp = temp.nextNode
         }
         return false
+    };
+    findIndex(value) {
+        let temp = this.listHead;
+        let count = 0;
+        while(temp !== null) {
+            if(temp.value === value) {
+                return count;
+            }
+            temp = temp.nextNode
+            count++
+        }
+        return -1;
     }
 
 }
@@ -100,7 +112,7 @@ const list = new LinkedList()
 const firstNode = new Node("first")
 const secondNode = new Node("second")
 
-const prepended = new Node("prepended before FIRST")
+const apended= new Node("3rd")
 
 
 
@@ -109,9 +121,10 @@ const prepended = new Node("prepended before FIRST")
 
 list.append(firstNode)
 list.append(secondNode)
+list.append(apended)
 
 
 
 
 
-console.log(list.contains("second"))
+console.log(list.findIndex("3rd"))
