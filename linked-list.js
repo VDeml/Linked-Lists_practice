@@ -14,6 +14,11 @@ class LinkedList {
             temp.nextNode = value
         }
     }
+    prepend(value) {
+        let temp = this.head;
+        this.head = value;
+        this.head.nextNode = temp
+    }
 }
 
 class Node {
@@ -23,16 +28,27 @@ class Node {
     }
 
 }
+// Creating the list
+const list = new LinkedList()
 
+// first set of nodes, to test "append" method
 const firstNode = new Node("first")
 const secondNode = new Node("second")
 
+const prepended = new Node("prepended before FIRST")
 
-const list = new LinkedList()
+const fourth = new Node("fourt?")
+
+
 
 
 
 list.append(firstNode)
 list.append(secondNode)
 
+console.log(`After 2 appends:
+    ${list}`)
+
+list.prepend(prepended)
+list.append(fourth)
 console.log(list)
