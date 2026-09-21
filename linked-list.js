@@ -29,6 +29,7 @@ class LinkedList {
         }
         return count
     };
+    // returns the first node of the list
     head() {
         if(this.listHead === null) {
             return undefined
@@ -36,6 +37,32 @@ class LinkedList {
         else {
             return this.listHead.value
         }
+    }
+    // returnts the last node of the list
+    tail() {
+        if(this.listHead === null) {
+            return undefined
+        }
+        else {
+            let temp = this.listHead
+            while(temp.nextNode !== null) {
+                temp = temp.nextNode
+            }
+            return temp;
+        }
+    }
+    at(index) {
+        if(index < 0 || !Number.isInteger(index)) {
+            return;
+        }
+        let temp = this.listHead
+        for(let i = 0; i < index; i++) {
+            temp = temp.nextNode
+            if(temp === null) {
+            return undefined
+            }
+        }
+        return temp;
     }
 }
 
@@ -68,4 +95,4 @@ list.append(secondNode)
 list.prepend(prepended)
 list.append(fourth)
 
-console.log(list.head())
+console.log(list.at(0).value)
