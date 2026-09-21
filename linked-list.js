@@ -94,7 +94,20 @@ class LinkedList {
             count++
         }
         return -1;
-    }
+    };
+    toString() {
+        const leftBracket = "( "
+        const rightBracket = " )"
+        const arrow = " -> "
+        let result = ""
+        let temp = this.listHead
+        while(temp !== null) {
+            result += leftBracket + temp.value + rightBracket + arrow
+            temp = temp.nextNode
+        }
+        result += "null"
+        return result;
+    };
 
 }
 
@@ -127,4 +140,4 @@ list.append(apended)
 
 
 
-console.log(list.findIndex("3rd"))
+console.log(list.toString())
