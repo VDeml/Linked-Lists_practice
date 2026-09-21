@@ -3,20 +3,22 @@ class LinkedList {
         this.listHead = listHead
     };
     append(value) {
+        const node = new Node(value)
         if(this.listHead === null){
-            this.listHead = value
+            this.listHead = node
         }
         else {
             let temp = this.listHead
             while(temp.nextNode !== null) {
                 temp = temp.nextNode
             }
-            temp.nextNode = value
+            temp.nextNode = node
         }
     };
     prepend(value) {
+        const node = new Node(value)
         let temp = this.listHead;
-        this.listHead = value;
+        this.listHead = node;
         this.listHead.nextNode = temp
     };
     // returns the total number of nodes in list
@@ -118,26 +120,5 @@ class Node {
     }
 
 }
-// Creating the list
-const list = new LinkedList()
 
-// first set of nodes, to test "append" method
-const firstNode = new Node("first")
-const secondNode = new Node("second")
-
-const apended= new Node("3rd")
-
-
-
-
-
-
-list.append(firstNode)
-list.append(secondNode)
-list.append(apended)
-
-
-
-
-
-console.log(list.toString())
+export { LinkedList, Node}
