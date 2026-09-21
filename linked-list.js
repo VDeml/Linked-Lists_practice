@@ -1,33 +1,41 @@
 class LinkedList {
-    constructor(head = null) {
-        this.head = head
-    }
+    constructor(listHead = null) {
+        this.listHead = listHead
+    };
     append(value) {
-        if(this.head === null){
-            this.head = value
+        if(this.listHead === null){
+            this.listHead = value
         }
         else {
-            let temp = this.head
+            let temp = this.listHead
             while(temp.nextNode !== null) {
                 temp = temp.nextNode
             }
             temp.nextNode = value
         }
-    }
+    };
     prepend(value) {
-        let temp = this.head;
-        this.head = value;
-        this.head.nextNode = temp
-    }
+        let temp = this.listHead;
+        this.listHead = value;
+        this.listHead.nextNode = temp
+    };
     // returns the total number of nodes in list
     size() {
         let count = 0;
-        let temp = this.head
+        let temp = this.listHead
         while(temp !== null) {
             temp = temp.nextNode
             count ++
         }
         return count
+    };
+    head() {
+        if(this.listHead === null) {
+            return undefined
+        }
+        else {
+            return this.listHead.value
+        }
     }
 }
 
@@ -59,4 +67,5 @@ list.append(secondNode)
 
 list.prepend(prepended)
 list.append(fourth)
-console.log(list.size())
+
+console.log(list.head())
