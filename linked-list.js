@@ -72,6 +72,16 @@ class LinkedList {
         let temp = this.listHead
         this.listHead = this.listHead.nextNode
         return temp.value
+    };
+    contains(value) {
+        let temp = this.listHead;
+        while(temp !== null) {
+            if(temp.value === value) {
+                return true
+            }
+            temp = temp.nextNode
+        }
+        return false
     }
 
 }
@@ -92,7 +102,6 @@ const secondNode = new Node("second")
 
 const prepended = new Node("prepended before FIRST")
 
-const fourth = new Node("fourt?")
 
 
 
@@ -102,7 +111,7 @@ list.append(firstNode)
 list.append(secondNode)
 
 
-list.prepend(prepended)
-list.append(fourth)
 
-console.log(list.pop())
+
+
+console.log(list.contains("second"))
